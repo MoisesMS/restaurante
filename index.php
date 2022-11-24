@@ -34,7 +34,7 @@
 		<input type="password" name="pass2" id="pass2" require> <br><br>
 
 		<label for="telefono">Telefono</label> <br>
-		<input type="number" name="telefono" id="telefono" require> <br><br>
+		<input type="tel" name="telefono" id="telefono" require> <br><br>
 		
 		<label for="img">Imagen de perfil</label> <br>
 		<input type="file" name="img" id="img" require> <br><br>
