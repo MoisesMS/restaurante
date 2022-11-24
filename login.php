@@ -11,7 +11,7 @@
 	$pass = mysqli_real_escape_string($conn, $pass);
 
 
-	$query = "SELECT password FROM usuarios where usuario LIKE BINARY '".$user."'";
+	$query = "SELECT * FROM usuarios where usuario LIKE BINARY '".$user."'";
 
 	$res = mysqli_query($conn, $query);
 
@@ -22,22 +22,28 @@
 
 		if($row > 0) {
 
-			$passUser = mysqli_fetch_assoc($res);
+			$user = mysqli_fetch_assoc($res);
 
-			$verificar = password_verify($pass, $passUser["password"]);
+			$passUser = $user["password"];
+
+			$verificar = password_verify($pass, $passUser);
 
 			if($verificar) {
-				header("location:menu.php");
 				$_SESSION["user"] = $user;
-				$_SESSION["pass"] = $pass;
+				$_SESSION["rol"] = $user["rol"];
+
+				switch($_SESSION["rol"]) {
+					case "cliente": header("location:menu_cliente.php"); break;
+					case "cocinero": header("location:menu_cocinero.php"); break;
+					case "administrador": header("location:menu_administrador.php"); break;
+				}
+
 			} else {
 				header("location:index_error.php");
 			}
 		} else {
 			header("location:index_error.php");
 		}
-		
 	}
-
 	mysqli_close($conn);
 ?>
