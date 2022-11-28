@@ -12,56 +12,57 @@
 
 <body>
 
-	<div class="container">
-		<h1 class="text-center">Iniciar sesión</h1>
-		<form action="./login.php" method="post">
-			<div class="form-floating mt-5">
-				<input class="form-control" type="text" name="user" id="user"> <br><br>
-				<label for="user">Usuario</label> <br>
+	<div class="row">
+
+		<div class="inicio-sesion col-12 col-lg-6">
+			<div class="container">
+				<h1 class="text-center">Iniciar sesión</h1>
+				<form action="./login.php" method="post">
+					<div class="form-floating mt-5">
+						<input class="form-control" type="text" name="user" id="user"> <br><br>
+						<label for="user">Usuario</label> <br>
+					</div>
+
+					<div class="form-floating">
+						<input class="form-control" type="password" name="pass" id="pass"> <br>
+						<label for="pass">Contraseña</label> <br>
+					</div>
+
+					<input class="btn btn-primary col-12" type="submit" value="Iniciar sesión">
+				</form>
 			</div>
+		</div>
 
-			<div class="form-floating">
-				<input class="form-control" type="password" name="pass" id="pass"> <br>
-				<label for="pass">Contraseña</label> <br>
+		<div class="col-12 col-lg-6 registro">
+			<div class="container">
+
+				<h1 class="text-center">Regístrate</h1> <br><br>
+
+				<form action="./register.php" method="post" enctype="multipart/form-data">
+
+					<div class="form-floating">
+						<input class="form-control" type="text" name="usuario" id="usuario" require> <br><br>
+						<label for="usuario">Usuario</label> <br>
+					</div>
+
+					<div class="form-floating">
+						<input class="form-control" type="password" name="pass" id="pass" require> <br><br>
+						<label for="pass">Contraseña</label> <br>
+					</div>
+
+					<div class="form-floating">
+						<input type="text" name="email" id="email" class="form-control" require> <br>
+						<label for="email">Correo electrónico</label> <br><br>
+					</div>
+
+					<label for="img">Imagen de perfil</label> <br>
+					<input class="form-control" type="file" name="img" id="img" accept="image/*" require> <br><br>
+
+
+					<input class="btn btn-primary col-12 mb-5" type="submit" value="Registrarse">
+				</form>
 			</div>
-				
-				<input class="btn btn-primary col-12" type="submit" value="Iniciar sesión">
-		</form>
-
-
-
-		<hr />
-
-		<h1 class="text-center">Regístrate</h1>
-
-		<form action="./register.php" method="post" enctype="multipart/form-data">
-
-		<div class="form-floating">
-			<input class="form-control" type="text" name="usuario" id="usuario" require> <br><br>
-			<label for="usuario">Usuario</label> <br>
 		</div>
-
-		<div class="form-floating">
-			<input class="form-control" type="password" name="pass1" id="pass1" require> <br><br>
-			<label for="pass1">Contraseña</label> <br>
-		</div>
-
-		<div class="form-floating">
-			<input class="form-control" type="password" name="pass2" id="pass2" require> <br><br>
-			<label for="pass2">Repetir contraseña</label> <br>
-		</div>
-
-		<div class="form-floating">
-			<input class="form-control" type="tel" name="telefono" id="telefono" require> <br><br>
-			<label for="telefono">Telefono</label> <br>
-		</div>
-
-		<label for="img">Imagen de perfil</label> <br>
-		<input class="form-control" type="file" name="img" id="img" require> <br><br>
-		
-
-			<input class="btn btn-primary col-12 mb-5" type="submit" value="Registrarse">
-		</form>
 	</div>
 </body>
 

@@ -1,7 +1,16 @@
 <?php
-	session_start();
+	include "conexion.php";
 
+	
+	session_start();
+	
 	if(isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
+
+
+		$query = "SELECT imagen_perfil FROM usuarios WHERE usuario = '" . $_SESSION['user']['usuario'] . "'";
+		$res = mysqli_query($conn, $query);
+
+		$ruta_img = mysqli_fetch_array($res);
 		?>
 		
 		<!DOCTYPE html>
@@ -15,6 +24,11 @@
 				<title>Menú de <?php echo $_SESSION["user"]["usuario"] ?></title>
 			</head>
 			<body>
+				<img
+					src="<?php echo $ruta_img[0] ?>"
+					alt="foto de perfil"
+					width="200px"
+				>
 				<nav>
 					<ul>
 						<li>Blog</li>
