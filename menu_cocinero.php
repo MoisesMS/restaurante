@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	if(isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
+	if(isset($_SESSION["user"]) && !empty($_SESSION["user"]) && $_SESSION["user"]["rol"] == "cocinero") {
 		?>
 			<!DOCTYPE html>
 			<html lang="es">
@@ -10,7 +10,7 @@
 					<meta http-equiv="X-UA-Compatible" content="IE=edge">
 					<meta name="viewport" content="width=device-width, initial-scale=1.0">
 					<link rel="stylesheet" href="./bootstrap-5.2.2-dist/css/bootstrap.min.css">
-					<script src="./bootstrap-5.2.2-dist/js/bootstrap.bundle.js"></script>
+					<script src="./css/bootstrap-5.2.2-dist/js/bootstrap.bundle.js"></script>
 					<title>Menú de <?php echo $_SESSION["user"]["usuario"]; ?> </title>
 				</head>
 				<body>
@@ -24,7 +24,7 @@
 					</nav>
 
 					<form action="./logout.php" method="post">
-						<input type="submit" value="Cerrar sesión">
+						<input type="submit" value="Cerrar sesión" class="btn btn-danger">
 					</form>
 				</body>
 			</html>
