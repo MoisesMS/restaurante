@@ -27,8 +27,7 @@ if (!empty($_POST["usuario"]) && !empty($_POST["email"]) && !empty($_POST["pass"
 		move_uploaded_file($_FILES["img"]["tmp_name"], "./fotos_perfil/" . $user . "/" . $_FILES["img"]["name"]);
 		$ruta = "./fotos_perfil/" . $user . "/" . $_FILES["img"]["name"];
 
-		//FIXME la fecha actual no se guarda
-		$query = "INSERT INTO usuarios VALUES(null, '" . $user . "', '" . $email . "', '" . $pass . "', 'CURDATE()', '" . $ruta . "', 'cliente')";
+		$query = "INSERT INTO usuarios VALUES(null, '" . $user . "', '" . $email . "', '" . $pass . "', CURDATE(), '" . $ruta . "', 'cliente')";
 		mysqli_query($conn, $query);
 
 		echo "<h1>Usuario registrado con éxito <a href='./index.php'>volver al menú de inicio de sesión</a> </h1>";
